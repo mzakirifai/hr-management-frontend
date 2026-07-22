@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import co.id.component.*?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+            xmlns="http://javafx.com/javafx"
+            fx:controller="co.id.controller.pages.AttendanceFormController"
+            spacing="15" styleClass="form-background" >
+                           
+    <Label text="Form Attendance" styleClass="form-label"/>
+    <HBox spacing="30" alignment="TOP_LEFT">
+        <VBox spacing="10" prefWidth="300">
+            <LookupBox fx:id="lookupBoxEmployee" promptText="Attendance By Employee" />
+            <DatePicker fx:id="datePickerDate" promptText="Date"/>
+            <TextField fx:id="textFieldCheckIn" promptText="Check In (HH:mm), contoh 08:00"/>
+            <TextField fx:id="textFieldCheckOut" promptText="Check Out (HH:mm), contoh 17:00"/>
+            <TextField fx:id="textFieldOvertimeHour" promptText="Overtime Hour"/>
+   
+            <ComboBox fx:id="comboLeaveType" promptText="Leave Type">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Present"/>
+                        <String fx:value="Sick"/>
+                        <String fx:value="Leave"/>
+                        <String fx:value="Permission"/>
+                        <String fx:value="Absent"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+        </VBox>
+    </HBox>
+    <VBox styleClass="form-vbox"/>
+    <HBox alignment="CENTER_RIGHT" >
+        <Button text="Save" fx:id="saveBtn" onAction="#saveEntity" styleClass="form-button">
+            <graphic>
+                <ImageView fitHeight="16" fitWidth="16" >
+                    <image>
+                        <Image url="@/icons/save.png"/>
+                    </image>
+                </ImageView>                    
+            </graphic>
+        </Button>   
+    </HBox>
+</VBox>

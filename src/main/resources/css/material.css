@@ -1,0 +1,130 @@
+.btn-edit{
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+}
+
+.btn-delete{
+    -fx-background-color: #F44336;
+    -fx-text-fill: white;
+}
+
+.btn-save{
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+}
+
+.btn-cancel{
+    -fx-background-color: #9E9E9E;
+    -fx-text-fill: white;
+}
+
+.menu-brand{
+    -fx-text-fill: white; 
+    -fx-font-size: 16px; 
+    -fx-font-weight: bold;
+}
+
+.menu-background{
+    -fx-background-color: linear-gradient(to bottom, #1A3D6D, #27496D); 
+    -fx-padding: 20;
+}
+
+.menu-parent{
+    -fx-text-fill: white; 
+    -fx-background-color: transparent;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.menu-child{
+    -fx-text-fill: white; 
+    -fx-background-color: transparent;
+    -fx-padding: 0 0 0 20;
+}
+
+.navbar-background{
+    -fx-background-color: white;
+    -fx-padding:10 20;
+}
+
+.navbar-toggle{
+    -fx-background-color: transparent;
+    -fx-font-size: 18px;
+}
+
+.navbar-menu{
+    -fx-background-color: transparent;
+    -fx-text-fill:#333;
+}
+
+.list-menu-background{
+    -fx-background-color: #F7FAFF;
+    -fx-padding:40;
+}
+
+.list-menu-top{
+    
+}
+
+.list-menu-top-vbox{
+    -fx-padding:0 0 10 0;
+}
+
+.list-menu-top-label{
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.list-menu-top-button{
+    -fx-background-color: #4CAF50;
+    -fx-text-fill:white;
+}
+
+.list-menu-center{
+    
+}
+
+.list-menu-center-vbox{
+    -fx-padding:10 0 10 0;
+}
+
+.list-menu-bottom{
+    
+}
+
+.list-menu-bottom-vbox{
+    -fx-padding:10 0 0 0;
+}
+
+.form-background{
+    -fx-padding:20;
+    -fx-background-color: white;
+}
+
+.form-label{
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.form-vbox{
+    -fx-pref-height:20;
+}
+
+.form-button{
+    -fx-background-color: #4CAF50;
+    -fx-text-fill:white;
+}
+
+.form-report{
+    -fx-background-color: #F7FAFF;
+    -fx-padding:20;
+}
+
+.form-report-vbox{
+    -fx-padding:0 0 10 0;
+}
+
+.form-report-button{
+    -fx-background-color: #4CAF50;
+    -fx-text-fill:white;
+}

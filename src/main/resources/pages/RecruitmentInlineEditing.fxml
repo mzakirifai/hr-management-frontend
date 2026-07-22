@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import co.id.component.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            xmlns="http://javafx.com/javafx"
+            fx:controller="co.id.controller.pages.RecruitmentControllerInlineEditing"
+            styleClass="list-menu-background">
+    <top>
+        <VBox spacing="10" styleClass="list-menu-top-vbox">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Recruitment" styleClass="list-menu-top-label"/>
+                <LookupBox fx:id="lookupBoxPosition" promptText="Recruitment By Position" />
+                <Button fx:id="filterBtn" text="Filter">
+                    <graphic>
+                        <ImageView fitHeight="16" fitWidth="16" >
+                            <image>
+                                <Image url="@/icons/loupe.png"/>
+                            </image>
+                        </ImageView>                    
+                    </graphic>
+                </Button>
+                <Button fx:id="refreshBtn" text="Refresh">
+                    <graphic>
+                        <ImageView fitHeight="16" fitWidth="16" >
+                            <image>
+                                <Image url="@/icons/refresh.png"/>
+                            </image>
+                        </ImageView>                    
+                    </graphic>
+                </Button>
+                <HBox HBox.hgrow="ALWAYS" />
+                <Button fx:id="addBtn" text="Add" styleClass="list-menu-top-button">
+                    <graphic>
+                        <ImageView fitHeight="16" fitWidth="16" >
+                            <image>
+                                <Image url="@/icons/printer.png"/>
+                            </image>
+                        </ImageView>                    
+                    </graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </top>
+    
+    <center>
+        <VBox spacing="10" styleClass="list-menu-center-vbox">
+            <TableView fx:id="tableView" prefHeight="400">
+                <columns>
+                    <TableColumn fx:id="tableColumnPosition" text="Position" prefWidth="150" />
+                    <TableColumn fx:id="tableColumnName" text="Name" prefWidth="150"/>
+                    <TableColumn fx:id="tableColumnStatus" text="Status" prefWidth="150"/>
+                    <TableColumn fx:id="tableColumnDateCreated" text="Date Created" prefWidth="150"/>
+                    <TableColumn fx:id="tableColumnCreatedBy" text="CreatedBy" prefWidth="150"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+    
+    <bottom>
+        <VBox spacing="10" alignment="CENTER" styleClass="list-menu-bottom-vbox">
+            <Pagination fx:id="pagination" pageCount="10" maxPageIndicatorCount="5"/>
+        </VBox>
+    </bottom>
+</BorderPane>

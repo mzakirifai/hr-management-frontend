@@ -1,0 +1,7 @@
+target/
+*.class
+data/*.db
+data/*.sqlite
+*.log
+.idea/
+*.iml

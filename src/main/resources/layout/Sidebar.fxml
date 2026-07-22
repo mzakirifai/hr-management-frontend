@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" 
+      xmlns:fx="http://javafx.com/fxml" 
+      fx:controller="co.id.controller.layout.SidebarController"
+      spacing="8" styleClass="menu-background" prefWidth="220" >
+    <!-- Brand (Nama Apk) -->
+    <Label text="Human Resource" styleClass="menu-brand"/>
+    <!-- Dashboard -->
+    <Button text="Dashboard" styleClass = "menu-parent"/>  
+    <!-- Master -->
+    <Button fx:id="masterMenu" text="Master ▿" 
+        onAction="#toggleMasterMenu" styleClass = "menu-parent"/>
+        <VBox fx:id="masterMenuBox" spacing="5" visible="true" managed="true">
+            <Button text="Contract" onAction="#handleContractClick" styleClass = "menu-child"/>
+            <Button text="Department" onAction="#handleDepartmentClick" styleClass = "menu-child"/>
+            <Button text="Employee" onAction="#handleEmployeeClick" styleClass = "menu-child"/>
+            <Button text="Position" onAction="#handlePositionClick" styleClass = "menu-child"/>
+        </VBox>
+    <!-- Transaction -->
+    <Button fx:id="transactionMenu" text="Transaction ▿" 
+        onAction="#toggleTransactionMenu" styleClass = "menu-parent"/>
+        <VBox fx:id="transactionMenuBox" spacing="5" visible="true" managed="true">
+            <Button text="Attendance" onAction="#handleAttendanceClick" styleClass = "menu-child"/>
+            <Button text="Payroll" onAction="#handlePayrollClick" styleClass = "menu-child"/>
+            <Button text="Performance" onAction="#handlePerformanceClick" styleClass = "menu-child"/>
+            <Button text="Recruitment" onAction="#handleRecruitmentClick" styleClass = "menu-child"/>
+        </VBox>
+    <!-- Report -->
+    <Button fx:id="reportMenu" text="Report ▿" 
+        onAction="#toggleReportMenu" styleClass = "menu-parent"/>
+        <VBox fx:id="reportMenuBox" spacing="5" visible="true" managed="true">
+            <Button text="Report Attendance" onAction="#handleReportAttendanceClick" styleClass = "menu-child"/>
+            <Button text="Report Payroll" onAction="#handleReportPayrollClick" styleClass = "menu-child"/>
+            <Button text="Report Performance" onAction="#handleReportPerformanceClick" styleClass = "menu-child"/>
+            <Button text="Report Recruitment" onAction="#handleReportRecruitmentClick" styleClass = "menu-child"/>
+        </VBox>
+     <!-- spacer -->
+     <Region VBox.vgrow="ALWAYS"/>
+     <!-- settings / Help / About -->
+     <Button text="Settings" styleClass = "menu-parent"/>  
+     <Button text="Help" styleClass = "menu-parent"/>
+     <Button text="About" styleClass = "menu-parent"/>
+</VBox>

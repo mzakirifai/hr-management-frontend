@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import co.id.component.*?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+            xmlns="http://javafx.com/javafx"
+            fx:controller="co.id.controller.pages.EmployeeFormController"
+            spacing="15" styleClass="form-background">
+                           
+    <Label text="Form Employee" styleClass="form-label"/>
+    <HBox spacing="30" alignment="TOP_LEFT" >
+        <VBox spacing="10" prefWidth="300" >
+            <TextField fx:id="textFieldCode" promptText="Code"/>
+            <TextField fx:id="textFieldName" promptText="Name"/>
+            <TextArea fx:id="textAreaAddress" promptText="Address" prefRowCount="3" />
+            <TextField fx:id="textFieldPhone" promptText="Phone"/>
+            <TextField fx:id="textFieldEmail" promptText="Email"/>
+            <HBox spacing="10" >
+                <Label text="Gender :"/> 
+                <RadioButton fx:id="radioMale" text="Male" />
+                <RadioButton fx:id="radioFemale" text="Female" />
+            </HBox>  
+        </VBox>
+        <VBox spacing="10" prefWidth="300" >
+            <DatePicker fx:id="datePickerHireDate" promptText="Date Hired"/>
+            <ComboBox fx:id="comboStatus" promptText="Status">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Contract"/>
+                        <String fx:value="Permanent"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+            <DatePicker fx:id="datePickerStartDate" promptText="Start Date"/>
+            <DatePicker fx:id="datePickerEndDate" promptText="End Date"/>
+            <LookupBox fx:id="lookupBoxDepartment" promptText="Employee By Department"/>
+            <LookupBox fx:id="lookupBoxPosition" promptText="Employee By Position"/>
+            <LookupBox fx:id="lookupBoxContract" promptText="Employee By Contract"/>
+        </VBox>
+    </HBox>
+    <VBox styleClass="form-vbox"/>
+    <HBox alignment="CENTER_RIGHT">
+        <Button text="Save" fx:id="saveBtn" onAction="#saveEntity" styleClass="form-button">
+            <graphic>
+                <ImageView fitHeight="16" fitWidth="16" >
+                    <image>
+                        <Image url="@/icons/save.png"/>
+                    </image>
+                </ImageView>                    
+            </graphic>
+        </Button>   
+    </HBox>
+</VBox>

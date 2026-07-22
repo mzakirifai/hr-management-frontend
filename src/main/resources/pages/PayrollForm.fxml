@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import co.id.component.*?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+            xmlns="http://javafx.com/javafx"
+            fx:controller="co.id.controller.pages.PayrollFormController"
+            spacing="15" styleClass="form-background">
+                           
+    <Label text="Form Payroll" styleClass="form-label"/>
+    <HBox spacing="30" alignment="TOP_LEFT">
+        <VBox spacing="10" prefWidth="300">
+            <LookupBox fx:id="lookupBoxEmployee" promptText="Payroll By Employee" />
+            <TextField fx:id="textFieldPeriod" promptText="Period"/>
+            <TextField fx:id="textFieldBaseSalary" promptText="Base Salary"/>
+            <TextField fx:id="textFieldAllowance" promptText="Allowance"/>
+            <TextField fx:id="textFieldDeduction" promptText="Deduction"/>
+            <TextField fx:id="textFieldBpjs" promptText="BPJS"/>
+            <TextField fx:id="textFieldTaxPph21" promptText="Tax Pph21"/>
+            <TextField fx:id="textFieldNetSalary" promptText="Net Salary"/>
+        </VBox>
+    </HBox>
+    <VBox styleClass="form-vbox" />
+    <HBox alignment="CENTER_RIGHT">
+        <Button text="Save" fx:id="saveBtn" onAction="#saveEntity" styleClass="form-button">
+            <graphic>
+                <ImageView fitHeight="16" fitWidth="16" >
+                    <image>
+                        <Image url="@/icons/save.png"/>
+                    </image>
+                </ImageView>                    
+            </graphic>
+        </Button>   
+    </HBox>
+</VBox>

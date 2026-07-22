@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.5.final using JasperReports Library version 6.21.5-74d586df47b25dbd05bd0957999819196e59934a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportAttendance" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="254e5e01-fbd4-43f5-ab6b-192b465a847e">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="employee.name" class="java.lang.String"/>
+	<field name="employee.code" class="java.lang.String"/>
+	<field name="date" class="java.time.LocalDate"/>
+	<field name="checkIn" class="java.time.LocalTime"/>
+	<field name="checkOut" class="java.time.LocalTime"/>
+	<field name="overtimeHour" class="java.lang.Long"/>
+	<field name="leaveType" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="3003f6c0-0bc0-4de3-ba01-124bca94046b"/>
+				<text><![CDATA[Report Attendance]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="149e8f39-aad4-416c-9fc9-5898c2bdeeac"/>
+				<text><![CDATA[Name	:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="30" uuid="f50fab76-bd59-425c-ab69-2b9b702be941"/>
+				<textFieldExpression><![CDATA[$F{employee.name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="30" y="31" width="100" height="30" uuid="3667da31-d3b0-40f8-9790-b47585d996d3"/>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="30" width="100" height="30" uuid="776f8041-182b-4493-85e3-275a60bb965b"/>
+				<text><![CDATA[Check In]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="230" y="30" width="100" height="30" uuid="e64d1971-3390-4bc7-a2e4-ad57b2d3b666"/>
+				<text><![CDATA[Check Out]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="30" width="100" height="30" uuid="75375667-d9eb-48bb-ac03-54dbdc2803d9"/>
+				<text><![CDATA[Over Time]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="30" width="100" height="30" uuid="c88a22f1-f951-4950-8662-b893c6f5a731"/>
+				<text><![CDATA[Leave Type]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="30" y="0" width="100" height="30" uuid="9b689eaf-b7d5-4243-8270-4ab204bbac4d"/>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm">
+				<reportElement x="130" y="0" width="100" height="30" uuid="c56aa3e2-52b2-4dcb-a312-fc05f8d5a597"/>
+				<textFieldExpression><![CDATA[$F{checkIn}]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm">
+				<reportElement x="230" y="0" width="100" height="30" uuid="6e7f1c65-d15d-41d1-b7cc-15113a800e9f"/>
+				<textFieldExpression><![CDATA[$F{checkOut}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="0" width="100" height="30" uuid="6d0f33ad-272f-445f-876f-c43e62826f31"/>
+				<textFieldExpression><![CDATA[$F{overtimeHour}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="0" width="100" height="30" uuid="51d8167e-7715-406f-8fa9-674e6a69b038"/>
+				<textFieldExpression><![CDATA[$F{leaveType}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

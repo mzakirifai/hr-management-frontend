@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.5.final using JasperReports Library version 6.21.5-74d586df47b25dbd05bd0957999819196e59934a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportPayroll" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fd3ba16e-661e-4f1d-9a53-8d4739f18a6e">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="employee.name" class="java.lang.String"/>
+	<field name="employee.code" class="java.lang.String"/>
+	<field name="period" class="java.lang.String"/>
+	<field name="salary" class="java.lang.Long"/>
+	<field name="allowance" class="java.lang.Long"/>
+	<field name="deduction" class="java.lang.Long"/>
+	<field name="bpjs" class="java.lang.Long"/>
+	<field name="taxPph21" class="java.lang.Long"/>
+	<field name="netSalary" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="0ffb787a-ab64-4efd-a215-ef796f15fdb8"/>
+				<text><![CDATA[Report Payroll]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="dc976284-fc5c-4b5c-9a7b-0801b2bddf8c"/>
+				<text><![CDATA[Name	:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="30" uuid="e601c8bf-21c0-4613-af6c-a52acfb2ea63"/>
+				<textFieldExpression><![CDATA[$F{employee.name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="65" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="35" width="70" height="30" uuid="947c876e-92b9-45fd-a444-2d00727c7ed8"/>
+				<text><![CDATA[Period]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="34" width="100" height="30" uuid="0a860720-49f1-41be-8868-abb8c3ba5afe">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<text><![CDATA[Base Salary]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="34" width="90" height="30" uuid="7bbe5908-d159-4704-8348-01e27a64ad9f">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<text><![CDATA[Allowance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="34" width="70" height="30" uuid="8b141240-6cf0-47ee-a544-07cb405425bd">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<text><![CDATA[Deduction]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="34" width="70" height="30" uuid="24c2087c-35d4-469f-904b-ff5d9aa0da12">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<text><![CDATA[BPJS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="34" width="70" height="30" uuid="f4bf228f-32c7-4765-8b57-1363c308234c">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<text><![CDATA[Tax PPH 21]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="34" width="85" height="30" uuid="98811d95-9aca-4d8f-a1b9-36cb8d9b262f">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<text><![CDATA[Net Salary]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="70" height="30" uuid="252468d9-2e8c-48e0-bade-d4941affe3a6"/>
+				<textFieldExpression><![CDATA[$F{period}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="0" width="100" height="30" uuid="dd82ff30-66fd-4064-b64a-828de9977344"/>
+				<textFieldExpression><![CDATA[$F{salary}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="0" width="90" height="30" uuid="db05bf8a-ce89-4d2c-b55b-933906ac41d7"/>
+				<textFieldExpression><![CDATA[$F{allowance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="0" width="70" height="30" uuid="3d262fdd-debd-4dc7-9ce0-e8240e2f4078"/>
+				<textFieldExpression><![CDATA[$F{deduction}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="0" width="70" height="30" uuid="77b19c97-7ae0-4080-9b46-9a0edbbbbeb1"/>
+				<textFieldExpression><![CDATA[$F{bpjs}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="0" width="70" height="30" uuid="7938839a-d338-4ea4-8e64-daefe42f2c06"/>
+				<textFieldExpression><![CDATA[$F{taxPph21}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="0" width="85" height="30" uuid="45ab387f-8552-4c00-8149-5a27b10010df"/>
+				<textFieldExpression><![CDATA[$F{netSalary}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
