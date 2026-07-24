@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" 
+      xmlns:fx="http://javafx.com/fxml" 
+      fx:controller="co.id.controller.pages.DashboardController"
+      spacing="20" styleClass="form-background" alignment="TOP_CENTER">
+
+    <Label text="Dashboard" styleClass="form-label"/>
+    <Separator/>
+
+    <HBox spacing="20" alignment="CENTER">
+        <VBox styleClass="dashboard-card">
+            <Label text="Total Employee" styleClass="dashboard-card-title"/>
+            <Label fx:id="lblTotalEmployee" text="0" styleClass="dashboard-card-value"/>
+        </VBox>
+        <VBox styleClass="dashboard-card">
+            <Label text="Total Department" styleClass="dashboard-card-title"/>
+            <Label fx:id="lblTotalDepartment" text="0" styleClass="dashboard-card-value"/>
+        </VBox>
+        <VBox styleClass="dashboard-card">
+            <Label text="Total Position" styleClass="dashboard-card-title"/>
+            <Label fx:id="lblTotalPosition" text="0" styleClass="dashboard-card-value"/>
+        </VBox>
+        <VBox styleClass="dashboard-card">
+            <Label text="Total Contract" styleClass="dashboard-card-title"/>
+            <Label fx:id="lblTotalContract" text="0" styleClass="dashboard-card-value"/>
+        </VBox>
+    </HBox>
+
+    <HBox spacing="20" alignment="CENTER">
+        <VBox styleClass="dashboard-card">
+            <Label text="Total Attendance" styleClass="dashboard-card-title"/>
+            <Label fx:id="lblTotalAttendance" text="0" styleClass="dashboard-card-value"/>
+        </VBox>
+        <VBox styleClass="dashboard-card">
+            <Label text="Total Payroll" styleClass="dashboard-card-title"/>
+            <Label fx:id="lblTotalPayroll" text="0" styleClass="dashboard-card-value"/>
+        </VBox>
+        <VBox styleClass="dashboard-card">
+            <Label text="Total Performance" styleClass="dashboard-card-title"/>
+            <Label fx:id="lblTotalPerformance" text="0" styleClass="dashboard-card-value"/>
+        </VBox>
+        <VBox styleClass="dashboard-card">
+            <Label text="Total Recruitment" styleClass="dashboard-card-title"/>
+            <Label fx:id="lblTotalRecruitment" text="0" styleClass="dashboard-card-value"/>
+        </VBox>
+    </HBox>
+
+</VBox>

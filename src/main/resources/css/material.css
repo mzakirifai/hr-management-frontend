@@ -133,3 +133,22 @@
     -fx-font-weight: bold;
     -fx-font-size: 14px;
 }
+
+.dashboard-card{
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 25;
+    -fx-spacing: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 2);
+    -fx-pref-width: 260;
+    -fx-pref-height: 130;
+}
+.dashboard-card-title{
+    -fx-font-size: 15px;
+    -fx-text-fill: #888;
+}
+.dashboard-card-value{
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1A3D6D;
+}

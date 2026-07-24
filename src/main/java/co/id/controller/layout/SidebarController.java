@@ -61,7 +61,7 @@ public class SidebarController {
             sidebar.setPrefWidth(220);
             collapsed = false;
             
-            //Kembalikan tekS aSli dari uSer data
+            //Kembalikan teks asli dari user data
             for (var node: sidebar.getChildren()) {
                 if (node instanceof Button btn) {
                     Object originalText = btn.getUserData();

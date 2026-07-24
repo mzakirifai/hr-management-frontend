@@ -12,6 +12,9 @@ public class MainLayoutController {
     @FXML public void initialize(){
         // Daftarkan ke registry
         ControllerRegistry.setMainLayoutController(this);
+        
+        // Tampilkan Dashboard secara otomatis saat aplikasi pertama kali dibuka
+        setContent("/pages/Dashboard.fxml");
     }
     
     public void setContent(String fxmlPath){

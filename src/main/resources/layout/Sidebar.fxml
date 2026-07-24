@@ -13,7 +13,7 @@
     <!-- Brand (Nama Apk) -->
     <Label text="Human Resource" styleClass="menu-brand"/>
     <!-- Dashboard -->
-    <Button text="Dashboard" styleClass = "menu-parent"/>  
+    <Button text="Dashboard" onAction="#handleDashboardClick" styleClass = "menu-parent"/>  
     <!-- Master -->
     <Button fx:id="masterMenu" text="Master ▿" 
         onAction="#toggleMasterMenu" styleClass = "menu-parent"/>
