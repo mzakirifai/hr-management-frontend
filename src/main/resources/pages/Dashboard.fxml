@@ -9,7 +9,7 @@
       fx:controller="co.id.controller.pages.DashboardController"
       spacing="20" styleClass="form-background" alignment="TOP_CENTER">
 
-    <Label text="Dashboard" styleClass="form-label"/>
+    <Label text="Dashboard" styleClass="dashboard-title"/>
     <Separator/>
 
     <HBox spacing="20" alignment="CENTER">
@@ -49,5 +49,18 @@
             <Label fx:id="lblTotalRecruitment" text="0" styleClass="dashboard-card-value"/>
         </VBox>
     </HBox>
+    
+    <Label text="Today's Attendance" styleClass="form-label"/>
+    <Separator/>
+
+    <TableView fx:id="tableTodayAttendance" prefHeight="180" fixedCellSize="35">
+        <columns>
+            <TableColumn fx:id="colRecentEmployee" text="Employee" prefWidth="150"/>
+            <TableColumn fx:id="colRecentDate" text="Date" prefWidth="120"/>
+            <TableColumn fx:id="colRecentCheckIn" text="Check In" prefWidth="100"/>
+            <TableColumn fx:id="colRecentCheckOut" text="Check Out" prefWidth="100"/>
+            <TableColumn fx:id="colRecentLeaveType" text="Leave Type" prefWidth="120"/>
+        </columns>
+    </TableView>
 
 </VBox>

@@ -78,6 +78,8 @@ public class PerformanceControllerInlineEditing {
         transactionService = new TransactionServiceImpl();
         observableList = FXCollections.observableArrayList();
         
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        
         TableColumn<Employee, String> colEmp = new TableColumn<>("Employee");
         colEmp.setCellValueFactory(clbck -> new SimpleStringProperty(clbck.getValue().getName()));
         

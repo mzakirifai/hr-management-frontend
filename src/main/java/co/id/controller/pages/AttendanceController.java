@@ -73,6 +73,7 @@ public class AttendanceController {
         // System.out.println("observableList >>>"+observableList.size());
         // System.out.println("transactionService Paging>>>"+transactionService.getAttendances(1, 10));
         // System.out.println("transactionService All>>>"+transactionService.getAllAttendances());
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         
         TableColumn<Employee, String> colEmp = new TableColumn<>("Employee");
         colEmp.setCellValueFactory(clbck -> new SimpleStringProperty(clbck.getValue().getName()));

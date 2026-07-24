@@ -72,7 +72,8 @@ public class RecruitmentControllerInlineEditing {
         masterService = new  MasterServiceImpl();
         transactionService = new TransactionServiceImpl();
         observableList = FXCollections.observableArrayList();   
-        //System.out.println("data"+observableList.size());
+        
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         
         TableColumn<Position, String> colPos = new TableColumn<>("Position");
         colPos.setCellValueFactory(clbck -> new SimpleStringProperty(clbck.getValue().getName()));

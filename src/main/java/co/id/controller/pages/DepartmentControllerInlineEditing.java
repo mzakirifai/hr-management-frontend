@@ -60,7 +60,9 @@ public class DepartmentControllerInlineEditing {
     public void initialize(){
         masterService = new MasterServiceImpl();
         observableList = FXCollections.observableArrayList();
-        // System.out.println("Size: "+masterService.getAllContracts().size());
+        
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        
         tableColumnName.setCellFactory(tc ->
             new EdittableCell(
                     department -> department.getName(), (department, val) -> department.setName(val))

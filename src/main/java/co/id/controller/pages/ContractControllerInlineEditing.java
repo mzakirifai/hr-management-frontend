@@ -59,7 +59,9 @@ public class ContractControllerInlineEditing {
     public void initialize(){
         masterService = new MasterServiceImpl();
         observableList = FXCollections.observableArrayList();
-        // System.out.println("Size: "+masterService.getAllContracts().size());
+        
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        
         tableColumnType.setCellFactory(tc ->
             new ContractControllerInlineEditing.EdittableCell(
                     contract -> contract.getType(), (contract, val) -> contract.setType(val))

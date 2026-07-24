@@ -74,6 +74,8 @@ public class PositionControllerInlineEditing {
 
         DecimalFormat rupiahFormat = new DecimalFormat("Rp ###,###.00", symbols);
         
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        
         tableColumnName.setCellFactory(tc ->
             new EdittableCell(
                     position -> position.getName(), (position, val) -> position.setName(val))

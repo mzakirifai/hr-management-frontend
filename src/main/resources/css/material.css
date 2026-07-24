@@ -134,6 +134,11 @@
     -fx-font-size: 14px;
 }
 
+.dashboard-title{
+    -fx-font-size: 40px;
+    -fx-font-weight: bold;
+}
+
 .dashboard-card{
     -fx-background-color: white;
     -fx-background-radius: 10;
@@ -151,4 +156,33 @@
     -fx-font-size: 36px;
     -fx-font-weight: bold;
     -fx-text-fill: #1A3D6D;
+}
+
+.table-view{
+    -fx-background-color: transparent;
+    -fx-border-color: #E0E0E0;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+.table-view .column-header-background{
+    -fx-background-color: #E8EDF5;
+    -fx-background-radius: 6 6 0 0;
+}
+.table-view .column-header{
+    -fx-background-color: transparent;
+}
+.table-view .column-header .label{
+    -fx-text-fill: #1A3D6D;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+}
+.table-view .table-row-cell{
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #F0F0F0 transparent;
+}
+.table-view .table-row-cell:odd{
+    -fx-background-color: #F7FAFF;
+}
+.table-view .table-row-cell:selected{
+    -fx-background-color: #D6E4FF;
 }
