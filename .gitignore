@@ -1,6 +1,8 @@
 target/
 *.class
 data/*.db
+data/*.db-shm
+data/*.db-wal
 data/*.sqlite
 *.log
 .idea/
