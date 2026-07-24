@@ -128,3 +128,8 @@
     -fx-background-color: #4CAF50;
     -fx-text-fill:white;
 }
+
+.section-title{
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}

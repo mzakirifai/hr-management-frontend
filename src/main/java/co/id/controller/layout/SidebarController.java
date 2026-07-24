@@ -124,6 +124,10 @@ public class SidebarController {
     @FXML private void handleReportPerformanceClick(){ loadPage("/pages/ReportPerformance.fxml"); }
     @FXML private void handleReportRecruitmentClick(){ loadPage("/pages/ReportRecruitment.fxml"); }
     
+    @FXML private void handleSettingsClick(){ loadPage("/pages/Settings.fxml"); }
+    @FXML private void handleHelpClick(){ loadPage("/pages/Help.fxml"); }
+    @FXML private void handleAboutClick(){ loadPage("/pages/About.fxml"); }
+    
     private void loadPage(String fxmlPath){
         MainLayoutController main = ControllerRegistry.getMainLayoutController();
         if (main != null){

@@ -44,7 +44,7 @@
      <!-- spacer -->
      <Region VBox.vgrow="ALWAYS"/>
      <!-- settings / Help / About -->
-     <Button text="Settings" styleClass = "menu-parent"/>  
-     <Button text="Help" styleClass = "menu-parent"/>
-     <Button text="About" styleClass = "menu-parent"/>
+     <Button text="Settings" onAction="#handleSettingsClick" styleClass = "menu-parent"/>  
+     <Button text="Help" onAction="#handleHelpClick" styleClass = "menu-parent"/>
+     <Button text="About" onAction="#handleAboutClick" styleClass = "menu-parent"/>
 </VBox>
