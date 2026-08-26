@@ -53,6 +53,7 @@
         <VBox spacing="10" styleClass="list-menu-center-vbox">
             <TableView fx:id="tableView" prefHeight="400">
                 <columns>
+                    <TableColumn fx:id="tableColumnAction" text="Action" prefWidth="90"/>
                     <TableColumn fx:id="tableColumnEmployee" text="Employee" prefWidth="150" />
                     <TableColumn fx:id="tableColumnPeriod" text="Period" prefWidth="150"/>
                     <TableColumn fx:id="tableColumnScore" text="Score" prefWidth="150"/>

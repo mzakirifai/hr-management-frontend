@@ -1,6 +1,7 @@
 package co.id.controller.pages;
 
 import co.id.component.EditableCell;
+import co.id.controller.layout.Session;
 import co.id.model.Position;
 import co.id.service.MasterService;
 import co.id.service.impl.MasterServiceImpl;
@@ -139,6 +140,12 @@ public class PositionControllerInlineEditing {
                 btnSave.getStyleClass().add("btn-save");
                 btnCancel.getStyleClass().add("btn-cancel");
                 
+                // Sembunyikan tombol Delete kalau bukan Admin
+                if (!Session.isAdmin()) {
+                    btnDelete.setVisible(false);
+                    btnDelete.setManaged(false);
+                }
+                
                 btnEdit.setOnAction(e -> {
                     editingRowIndex = getIndex();
                     tableView.refresh();
@@ -176,7 +183,7 @@ public class PositionControllerInlineEditing {
                         position.setSalary(position.getSalary());
                         position.setCreated_date(LocalDate.now());
                         position.setUpdated_date(null);
-                        position.setCreated_by("Admin");
+                        position.setCreated_by(Session.getCurrentUser().getUsername());
                         
                         masterService.saveOrUpdatePosition(position);
                     } else {
@@ -275,7 +282,7 @@ public class PositionControllerInlineEditing {
             return;
         }
         
-        Position newPosition = new Position(0, "", 0L, LocalDate.now(), LocalDate.now(), "Admin");
+        Position newPosition = new Position(0, "", 0L, LocalDate.now(), LocalDate.now(), Session.getCurrentUser().getUsername());
         observableList.add(0, newPosition);
         editingRowIndex = 0;
         tableView.refresh();

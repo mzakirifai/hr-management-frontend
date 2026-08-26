@@ -5,46 +5,219 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
 
-<VBox xmlns="http://javafx.com/javafx" 
+<VBox fx:id="sidebar"
+      xmlns="http://javafx.com/javafx" 
       xmlns:fx="http://javafx.com/fxml" 
       fx:controller="co.id.controller.layout.SidebarController"
       spacing="8" styleClass="menu-background" prefWidth="220" >
     <!-- Brand (Nama Apk) -->
-    <Label text="Human Resource" styleClass="menu-brand"/>
+    <Label fx:id="brandLabel" text="Human Resource" styleClass="menu-brand">
+        <graphic>
+            <ImageView fitWidth="35" fitHeight="35" preserveRatio="true">
+                <image>
+                    <Image url="@/images/logo.png"/>
+                </image>
+            </ImageView>
+        </graphic>
+    </Label>
     <!-- Dashboard -->
-    <Button text="Dashboard" onAction="#handleDashboardClick" styleClass = "menu-parent"/>  
+    <Button text="Dashboard" onAction="#handleDashboardClick" styleClass = "menu-parent">
+        <graphic>
+            <ImageView fitWidth="20" fitHeight="20" preserveRatio="true">
+                <image>
+                    <Image url="@/icons/dashboard.png"/>
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>  
     <!-- Master -->
     <Button fx:id="masterMenu" text="Master ▿" 
-        onAction="#toggleMasterMenu" styleClass = "menu-parent"/>
+            onAction="#toggleMasterMenu" styleClass = "menu-parent">
+        <graphic>
+            <ImageView fitWidth="20" fitHeight="20" preserveRatio="true">
+                <image>
+                    <Image url="@/icons/master.png"/>
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
         <VBox fx:id="masterMenuBox" spacing="5" visible="true" managed="true">
-            <Button text="Contract" onAction="#handleContractClick" styleClass = "menu-child"/>
-            <Button text="Department" onAction="#handleDepartmentClick" styleClass = "menu-child"/>
-            <Button text="Employee" onAction="#handleEmployeeClick" styleClass = "menu-child"/>
-            <Button text="Position" onAction="#handlePositionClick" styleClass = "menu-child"/>
+            <Button text="Contract" onAction="#handleContractClick" styleClass = "menu-child">
+                <graphic>
+                    <ImageView fitWidth="16" fitHeight="16" preserveRatio="true">
+                        <image>
+                            <Image url="@/icons/contract.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button text="Department" onAction="#handleDepartmentClick" styleClass = "menu-child">
+                <graphic>
+                    <ImageView fitWidth="16" fitHeight="16" preserveRatio="true">
+                        <image>
+                            <Image url="@/icons/department.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button text="Employee" onAction="#handleEmployeeClick" styleClass = "menu-child">
+                <graphic>
+                    <ImageView fitWidth="16" fitHeight="16" preserveRatio="true">
+                        <image>
+                            <Image url="@/icons/employee.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button text="Position" onAction="#handlePositionClick" styleClass = "menu-child">
+                <graphic>
+                    <ImageView fitWidth="16" fitHeight="16" preserveRatio="true">
+                        <image>
+                            <Image url="@/icons/position.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
         </VBox>
     <!-- Transaction -->
     <Button fx:id="transactionMenu" text="Transaction ▿" 
-        onAction="#toggleTransactionMenu" styleClass = "menu-parent"/>
+            onAction="#toggleTransactionMenu" styleClass = "menu-parent">
+        <graphic>
+            <ImageView fitWidth="20" fitHeight="20" preserveRatio="true">
+                <image>
+                    <Image url="@/icons/transaction.png"/>
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
         <VBox fx:id="transactionMenuBox" spacing="5" visible="true" managed="true">
-            <Button text="Attendance" onAction="#handleAttendanceClick" styleClass = "menu-child"/>
-            <Button text="Payroll" onAction="#handlePayrollClick" styleClass = "menu-child"/>
-            <Button text="Performance" onAction="#handlePerformanceClick" styleClass = "menu-child"/>
-            <Button text="Recruitment" onAction="#handleRecruitmentClick" styleClass = "menu-child"/>
+            <Button text="Attendance" onAction="#handleAttendanceClick" styleClass = "menu-child">
+                <graphic>
+                    <ImageView fitWidth="16" fitHeight="16" preserveRatio="true">
+                        <image>
+                            <Image url="@/icons/attendance.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button fx:id="payrollBtn" text="Payroll" onAction="#handlePayrollClick" styleClass = "menu-child">
+                <graphic>
+                    <ImageView fitWidth="16" fitHeight="16" preserveRatio="true">
+                        <image>
+                            <Image url="@/icons/payroll.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button text="Performance" onAction="#handlePerformanceClick" styleClass = "menu-child">
+                <graphic>
+                    <ImageView fitWidth="16" fitHeight="16" preserveRatio="true">
+                        <image>
+                            <Image url="@/icons/performance.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button fx:id="recruitmentBtn" text="Recruitment" onAction="#handleRecruitmentClick" styleClass = "menu-child">
+                <graphic>
+                    <ImageView fitWidth="16" fitHeight="16" preserveRatio="true">
+                        <image>
+                            <Image url="@/icons/recruitment.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
         </VBox>
     <!-- Report -->
     <Button fx:id="reportMenu" text="Report ▿" 
-        onAction="#toggleReportMenu" styleClass = "menu-parent"/>
+            onAction="#toggleReportMenu" styleClass = "menu-parent">
+        <graphic>
+            <ImageView fitWidth="20" fitHeight="20" preserveRatio="true">
+                <image>
+                    <Image url="@/icons/report.png"/>
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
         <VBox fx:id="reportMenuBox" spacing="5" visible="true" managed="true">
-            <Button text="Report Attendance" onAction="#handleReportAttendanceClick" styleClass = "menu-child"/>
-            <Button text="Report Payroll" onAction="#handleReportPayrollClick" styleClass = "menu-child"/>
-            <Button text="Report Performance" onAction="#handleReportPerformanceClick" styleClass = "menu-child"/>
-            <Button text="Report Recruitment" onAction="#handleReportRecruitmentClick" styleClass = "menu-child"/>
+            <Button text="Report Attendance" onAction="#handleReportAttendanceClick" styleClass = "menu-child">
+                <graphic>
+                    <ImageView fitWidth="16" fitHeight="16" preserveRatio="true">
+                        <image>
+                            <Image url="@/icons/report_attendance.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button fx:id="reportPayrollBtn" text="Report Payroll" onAction="#handleReportPayrollClick" styleClass = "menu-child">
+                <graphic>
+                    <ImageView fitWidth="16" fitHeight="16" preserveRatio="true">
+                        <image>
+                            <Image url="@/icons/report_payroll.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button text="Report Performance" onAction="#handleReportPerformanceClick" styleClass = "menu-child">
+                <graphic>
+                    <ImageView fitWidth="16" fitHeight="16" preserveRatio="true">
+                        <image>
+                            <Image url="@/icons/report_performance.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button fx:id="reportRecruitmentBtn" text="Report Recruitment" onAction="#handleReportRecruitmentClick" styleClass = "menu-child">
+                <graphic>
+                    <ImageView fitWidth="16" fitHeight="16" preserveRatio="true">
+                        <image>
+                            <Image url="@/icons/report_recruitment.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
         </VBox>
      <!-- spacer -->
      <Region VBox.vgrow="ALWAYS"/>
+     
+    <!-- User Management    -->
+     <Button fx:id="userManagementBtn" text="User Management" onAction="#handleUserManagementClick" styleClass = "menu-parent">
+        <graphic>
+            <ImageView fitWidth="20" fitHeight="20" preserveRatio="true">
+                <image>
+                    <Image url="@/icons/user.png"/>
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
      <!-- settings / Help / About -->
-     <Button text="Settings" onAction="#handleSettingsClick" styleClass = "menu-parent"/>  
-     <Button text="Help" onAction="#handleHelpClick" styleClass = "menu-parent"/>
-     <Button text="About" onAction="#handleAboutClick" styleClass = "menu-parent"/>
+     <Button fx:id="settingsBtn" text="Settings" onAction="#handleSettingsClick" styleClass = "menu-parent">
+         <graphic>
+            <ImageView fitWidth="20" fitHeight="20" preserveRatio="true">
+                <image>
+                    <Image url="@/icons/settings.png"/>
+                </image>
+            </ImageView>
+        </graphic>
+     </Button>  
+     <Button text="Help" onAction="#handleHelpClick" styleClass = "menu-parent">
+         <graphic>
+            <ImageView fitWidth="20" fitHeight="20" preserveRatio="true">
+                <image>
+                    <Image url="@/icons/help.png"/>
+                </image>
+            </ImageView>
+        </graphic>
+     </Button>
+     <Button text="About" onAction="#handleAboutClick" styleClass = "menu-parent">
+         <graphic>
+            <ImageView fitWidth="20" fitHeight="20" preserveRatio="true">
+                <image>
+                    <Image url="@/icons/about.png"/>
+                </image>
+            </ImageView>
+        </graphic>
+     </Button>
 </VBox>

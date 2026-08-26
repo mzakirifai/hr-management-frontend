@@ -1,6 +1,6 @@
-
 package co.id.controller.pages;
 
+import co.id.controller.layout.Session;
 import co.id.model.Department;
 import co.id.service.MasterService;
 import co.id.service.impl.MasterServiceImpl;
@@ -100,6 +100,12 @@ public class DepartmentControllerInlineEditing {
                 btnSave.getStyleClass().add("btn-save");
                 btnCancel.getStyleClass().add("btn-cancel");
                 
+                // Sembunyikan tombol Delete kalau bukan Admin
+                if (!Session.isAdmin()) {
+                    btnDelete.setVisible(false);
+                    btnDelete.setManaged(false);
+                }
+
                 btnEdit.setOnAction(e -> {
                     editingRowIndex = getIndex();
                     tableView.refresh();
@@ -136,7 +142,7 @@ public class DepartmentControllerInlineEditing {
                         department.setName(department.getName());
                         department.setCreated_date(LocalDate.now());
                         department.setUpdated_date(null);
-                        department.setCreated_by("Admin");
+                        department.setCreated_by(Session.getCurrentUser().getUsername());
                         
                         masterService.saveOrUpdateDepartment(department);
                     }else{
@@ -235,7 +241,7 @@ public class DepartmentControllerInlineEditing {
             return;
         }
         
-        Department newDepartment = new Department(0, "", LocalDate.now(), LocalDate.now(), "Admin");
+        Department newDepartment = new Department(0, "", LocalDate.now(), LocalDate.now(), Session.getCurrentUser().getUsername());
         observableList.add(0, newDepartment);
         editingRowIndex = 0;
         tableView.refresh();

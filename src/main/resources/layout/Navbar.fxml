@@ -21,18 +21,15 @@
         <!-- Bulatkan ImageView dengan stackPane -->
         <StackPane>
             <ImageView fx:id="profileImage" fitWidth="32" fitHeight="32">
-                <image>
-                    <Image url="@/images/Me.jpeg"/>
-                </image>
             </ImageView>  
         </StackPane>
         <!-- User Dropdown -->
-        <MenuButton text="Zaki" styleClass="navbar-menu">
+        <MenuButton fx:id="menuButtonUser" text="User" styleClass="navbar-menu">
             <items>
-                <MenuItem text="Edit Profile"/>
-                <MenuItem text="Account Setting"/>
+                <MenuItem text="Edit Profile" onAction="#handleEditProfile"/>
+                <MenuItem text="Account Setting" onAction="#handleAccountSetting"/>
                 <SeparatorMenuItem />
-                <MenuItem text="Logout"/> 
+                <MenuItem fx:id="menuItemLogout" text="Logout" onAction="#handleLogout"/>
             </items>
         </MenuButton> 
     </HBox>

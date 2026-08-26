@@ -1,6 +1,7 @@
 package co.id.controller.pages;
 
 import co.id.component.LookupBox;
+import co.id.controller.layout.Session;
 import co.id.model.Attendance;
 import co.id.model.Employee;
 import co.id.service.MasterService;
@@ -101,7 +102,7 @@ public class AttendanceFormController {
             
             attendance.setLeaveType(leaveType);
             attendance.setCreated_date(LocalDate.now());
-            attendance.setCreated_by("Admin");
+            attendance.setCreated_by(Session.getCurrentUser().getUsername());
             
             transactionService.saveOrUpdateAttendance(attendance);
             

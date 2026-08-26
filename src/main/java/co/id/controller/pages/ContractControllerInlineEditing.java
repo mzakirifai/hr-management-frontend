@@ -1,5 +1,6 @@
 package co.id.controller.pages;
 
+import co.id.controller.layout.Session;
 import co.id.model.Contract;
 import co.id.service.MasterService;
 import co.id.service.impl.MasterServiceImpl;
@@ -99,6 +100,12 @@ public class ContractControllerInlineEditing {
                 btnSave.getStyleClass().add("btn-save");
                 btnCancel.getStyleClass().add("btn-cancel");
                 
+                // Sembunyikan tombol Delete kalau bukan Admin
+                if (!Session.isAdmin()) {
+                    btnDelete.setVisible(false);
+                    btnDelete.setManaged(false);
+                }
+                
                 btnEdit.setOnAction(e -> {
                     editingRowIndex = getIndex();
                     tableView.refresh();
@@ -135,7 +142,7 @@ public class ContractControllerInlineEditing {
                         contract.setType(contract.getType());
                         contract.setCreated_date(LocalDate.now());
                         contract.setUpdated_date(null);
-                        contract.setCreated_by("Admin");
+                        contract.setCreated_by(Session.getCurrentUser().getUsername());
                         
                         masterService.saveOrUpdateContract(contract);
                     }else{
@@ -234,7 +241,7 @@ public class ContractControllerInlineEditing {
             return;
         }
         
-        Contract newContract = new Contract(0, "", LocalDate.now(), LocalDate.now(), "Admin");
+        Contract newContract = new Contract(0, "", LocalDate.now(), LocalDate.now(), Session.getCurrentUser().getUsername());
         observableList.add(0, newContract);
         editingRowIndex = 0;
         tableView.refresh();

@@ -53,6 +53,7 @@
         <VBox spacing="10" styleClass="list-menu-center-vbox">
             <TableView fx:id="tableView" prefHeight="400">
                 <columns>
+                    <TableColumn fx:id="tableColumnAction" text="Action" prefWidth="90"/>
                     <TableColumn fx:id="tableColumnPosition" text="Position" prefWidth="150" />
                     <TableColumn fx:id="tableColumnName" text="Name" prefWidth="150"/>
                     <TableColumn fx:id="tableColumnStatus" text="Status" prefWidth="150"/>

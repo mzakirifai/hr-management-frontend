@@ -1,6 +1,7 @@
 package co.id.controller.pages;
 
 import co.id.component.LookupBox;
+import co.id.controller.layout.Session;
 import co.id.model.Payroll;
 import co.id.model.Employee;
 import co.id.service.MasterService;
@@ -57,12 +58,34 @@ public class PayrollFormController {
     private void saveEntity(){
         String period = textFieldPeriod.getText();
         Employee selectedEmp = lookupBoxEmployee.getSelectedItem();
-        Long baseSalary = Long.parseLong(textFieldBaseSalary.getText());
-        Long allowance = Long.parseLong(textFieldAllowance.getText());
-        Long deduction = Long.parseLong(textFieldDeduction.getText());
-        Long bpjs = Long.parseLong(textFieldBpjs.getText());
-        Long taxPph21 = Long.parseLong(textFieldTaxPph21.getText());
-        Long netSalary = Long.parseLong(textFieldNetSalary.getText());
+        
+        // --- VALIDASI ---
+        if (selectedEmp == null) {
+            Alert warning = new Alert(AlertType.WARNING, "Employee wajib dipilih");
+            warning.showAndWait();
+            return;
+        }
+
+        if (period == null || period.isBlank()) {
+            Alert warning = new Alert(AlertType.WARNING, "Period wajib diisi");
+            warning.showAndWait();
+            return;
+        }
+    
+        Long baseSalary, allowance, deduction, bpjs, taxPph21, netSalary;
+        try {
+            baseSalary = Long.parseLong(textFieldBaseSalary.getText());
+            allowance = Long.parseLong(textFieldAllowance.getText());
+            deduction = Long.parseLong(textFieldDeduction.getText());
+            bpjs = Long.parseLong(textFieldBpjs.getText());
+            taxPph21 = Long.parseLong(textFieldTaxPph21.getText());
+            netSalary = Long.parseLong(textFieldNetSalary.getText());
+        } catch (NumberFormatException e) {
+            Alert warning = new Alert(AlertType.WARNING, "Semua field nominal harus diisi dengan angka");
+            warning.showAndWait();
+            return;
+        }
+        // --- SELESAI VALIDASI ---
         
         Alert alert;
         
@@ -79,7 +102,7 @@ public class PayrollFormController {
             payroll.setNetSalary(netSalary);
            
             payroll.setCreated_date(LocalDate.now());
-            payroll.setCreated_by("Admin");
+            payroll.setCreated_by(Session.getCurrentUser().getUsername());
             
             transactionService.saveOrUpdatePayroll(payroll);
             

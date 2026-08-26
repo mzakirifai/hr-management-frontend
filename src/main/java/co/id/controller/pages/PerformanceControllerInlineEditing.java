@@ -1,6 +1,7 @@
 package co.id.controller.pages;
 
 import co.id.component.LookupBox;
+import co.id.controller.layout.Session;
 import co.id.model.Employee;
 import co.id.model.Performance;
 import co.id.service.MasterService;
@@ -50,6 +51,9 @@ public class PerformanceControllerInlineEditing {
     
     @FXML
     private Button addBtn;
+    
+    @FXML
+    private TableColumn<Performance, Void> tableColumnAction;
     
     @FXML
     private TableView<Performance> tableView;
@@ -148,6 +152,66 @@ public class PerformanceControllerInlineEditing {
                     performance -> performance.getRemark(), (performance, val) -> performance.setRemark(val))
         );
         
+        tableColumnAction.setCellFactory(params -> new TableCell<>() {
+        private final Button btnSave = new Button("Save");
+        private final Button btnCancel = new Button("Cancel");
+        private final HBox boxView = new HBox();
+        private final HBox boxEdit = new HBox(5, btnSave, btnCancel);
+
+        {
+            btnSave.setGraphic(createIcon("/icons/save.png"));
+            btnCancel.setGraphic(createIcon("/icons/cancel.png"));
+
+            btnSave.getStyleClass().add("btn-save");
+            btnCancel.getStyleClass().add("btn-cancel");
+
+            btnSave.setOnAction(e -> {
+                Performance performance = getTableView().getItems().get(getIndex());
+
+                if (performance.getEmployee() == null) {
+                    Alert warning = new Alert(Alert.AlertType.WARNING, "Employee wajib dipilih");
+                    warning.showAndWait();
+                    return;
+                }
+
+                if (performance.getPeriod() == null || performance.getPeriod().isBlank()) {
+                    Alert warning = new Alert(Alert.AlertType.WARNING, "Period wajib diisi");
+                    warning.showAndWait();
+                    return;
+                }
+
+                performance.setCreated_date(LocalDate.now());
+                performance.setCreated_by(Session.getCurrentUser().getUsername());
+
+                transactionService.saveOrUpdatePerformance(performance);
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION,
+                            "Data has been saved",
+                            ButtonType.OK);
+                alert.showAndWait();
+
+                editingRowIndex = -1;
+                refreshTable();
+            });
+
+            btnCancel.setOnAction(e -> {
+                editingRowIndex = -1;
+                refreshTable();
+            });
+        }
+
+        @Override
+        protected void updateItem(Void item, boolean empty) {
+            super.updateItem(item, empty);
+
+            if (empty) {
+                setGraphic(null);
+            } else {
+                setGraphic(getIndex() == editingRowIndex ? boxEdit : boxView);
+            }
+        }
+    });
+        
         tableColumnDateCreated.setCellValueFactory(
             Performance -> new SimpleStringProperty(Performance.getValue().getCreated_date()!= null ? Performance.getValue().getCreated_date().toString() : ""
         ));
@@ -216,7 +280,7 @@ public class PerformanceControllerInlineEditing {
             return;
         }
         
-        Performance newPerformance = new Performance(0, "", 0L, "", LocalDate.now(), LocalDate.now(), "Admin", null);
+        Performance newPerformance = new Performance(0, "", 0L, "", LocalDate.now(), LocalDate.now(), Session.getCurrentUser().getUsername(), null);
         observableList.add(0, newPerformance);
         editingRowIndex = 0;
         tableView.refresh();

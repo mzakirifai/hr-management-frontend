@@ -1,5 +1,6 @@
 package co.id.controller.pages;
 
+import co.id.controller.layout.Session;
 import co.id.model.Employee;
 import co.id.service.MasterService;
 import co.id.service.impl.MasterServiceImpl;
@@ -97,16 +98,22 @@ public class EmployeeController {
         //;;
         
         tableColumnContract.setCellValueFactory(
-            employee -> new SimpleStringProperty(employee.getValue().getContract().getType()
-        ));
+            employee -> new SimpleStringProperty(
+                employee.getValue().getContract() != null ? employee.getValue().getContract().getType() : "-"
+            )
+        );
         
         tableColumnDepartment.setCellValueFactory(
-            employee -> new SimpleStringProperty(employee.getValue().getDepartment().getName()
-        ));
+            employee -> new SimpleStringProperty(
+                employee.getValue().getDepartment() != null ? employee.getValue().getDepartment().getName() : "-"
+            )
+        );
         
         tableColumnPosition.setCellValueFactory(
-            employee -> new SimpleStringProperty(employee.getValue().getPosition().getName()
-        ));
+            employee -> new SimpleStringProperty(
+                employee.getValue().getPosition() != null ? employee.getValue().getPosition().getName() : "-"
+            )
+        );
         
         tableColumnDateCreated.setCellValueFactory(
             employee -> new SimpleStringProperty(employee.getValue().getCreated_date()!= null ? employee.getValue().getCreated_date().toString() : ""
@@ -132,6 +139,12 @@ public class EmployeeController {
                 buttonEdit.getStyleClass().add("btn-edit");
                 buttonDelete.getStyleClass().add("btn-delete");
     
+                // Sembunyikan tombol Delete kalau bukan Admin
+                if (!Session.isAdmin()) {
+                    buttonDelete.setVisible(false);
+                    buttonDelete.setManaged(false);
+                }
+
                 buttonEdit.setOnAction(eh -> {
                     Employee employee = getTableView().getItems().get(getIndex());
                     openForm(employee);

@@ -85,7 +85,10 @@ public class PayrollController {
         DecimalFormat rupiahFormat = new DecimalFormat("Rp ###,###.00", symbols);
         
         tableColumnEmployee.setCellValueFactory(
-            payroll -> new SimpleStringProperty(payroll.getValue().getEmployee().getName()));
+            payroll -> new SimpleStringProperty(
+                payroll.getValue().getEmployee() != null ? payroll.getValue().getEmployee().getName() : "-"
+            )
+        );
         
         tableColumnPeriod.setCellValueFactory(
             payroll -> new SimpleStringProperty(payroll.getValue().getPeriod()));

@@ -27,7 +27,7 @@ public class Main extends Application{
         stage.setScene(scene);
         stage.show();*/
         
-        Parent root = FXMLLoader.load(getClass().getResource("/layout/MainLayout.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/pages/Login.fxml"));
         
         // Ukuran Layar Utama
         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
@@ -46,7 +46,7 @@ public class Main extends Application{
         
         stage.getIcons().add(new Image(getClass().getResourceAsStream("/icons/favicon.png")));
         
-        stage.setTitle("Human Resources");
+        stage.setTitle("Human Resources - Login");
         stage.setScene(scene);
         
         stage.setX(screenBounds.getMinX() + screenWidth * 0.125);

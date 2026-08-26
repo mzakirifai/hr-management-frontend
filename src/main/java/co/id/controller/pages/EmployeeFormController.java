@@ -1,6 +1,7 @@
 package co.id.controller.pages;
 
 import co.id.component.LookupBox;
+import co.id.controller.layout.Session;
 import co.id.model.Contract;
 import co.id.model.Department;
 import co.id.model.Employee;
@@ -141,6 +142,19 @@ public class EmployeeFormController {
         Position selectedPos = lookupBoxPosition.getSelectedItem();
         Contract selectedContract = lookupBoxContract.getSelectedItem();
         
+        // --- VALIDASI ---
+        if (code == null || code.isBlank() || name == null || name.isBlank()) {
+            Alert warning = new Alert(AlertType.WARNING, "Employee Code dan Name wajib diisi");
+            warning.showAndWait();
+            return;
+        }
+
+        if (selectedDept == null || selectedPos == null || selectedContract == null) {
+            Alert warning = new Alert(AlertType.WARNING, "Department, Position, dan Contract wajib dipilih");
+            warning.showAndWait();
+            return;
+        }
+        
         Alert alert;
         
         if (selectedEmployee == null) {
@@ -159,12 +173,12 @@ public class EmployeeFormController {
             employee.setPosition(selectedPos);
             employee.setContract(selectedContract);
             employee.setCreated_date(LocalDate.now());
-            employee.setCreated_by("Admin");
+            employee.setCreated_by(Session.getCurrentUser().getUsername());
             
             masterService.saveOrUpdateEmployee(employee);
             
             alert = new Alert(AlertType.INFORMATION, "Data Has been Saved");
-            //..
+  
         } else {
             selectedEmployee.setCode(code);
             selectedEmployee.setName(name);

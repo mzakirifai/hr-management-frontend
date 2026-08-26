@@ -1,6 +1,7 @@
 package co.id.controller.pages;
 
 import co.id.component.LookupBox;
+import co.id.controller.layout.Session;
 import co.id.model.Position;
 import co.id.model.Recruitment;
 import co.id.service.MasterService;
@@ -49,6 +50,9 @@ public class RecruitmentControllerInlineEditing {
     
     @FXML
     private Button addBtn;
+    
+    @FXML
+    private TableColumn<Recruitment, Void> tableColumnAction;
     
     @FXML
     private TableView<Recruitment> tableView;
@@ -132,6 +136,66 @@ public class RecruitmentControllerInlineEditing {
                     recruitment -> recruitment.getStatus(), (recruitment, val) -> recruitment.setStatus(val))
         );
         
+        tableColumnAction.setCellFactory(params -> new TableCell<>() {
+        private final Button btnSave = new Button("Save");
+        private final Button btnCancel = new Button("Cancel");
+        private final HBox boxView = new HBox();
+        private final HBox boxEdit = new HBox(5, btnSave, btnCancel);
+
+        {
+            btnSave.setGraphic(createIcon("/icons/save.png"));
+            btnCancel.setGraphic(createIcon("/icons/cancel.png"));
+
+            btnSave.getStyleClass().add("btn-save");
+            btnCancel.getStyleClass().add("btn-cancel");
+
+            btnSave.setOnAction(e -> {
+                Recruitment recruitment = getTableView().getItems().get(getIndex());
+
+                if (recruitment.getPosition() == null) {
+                    Alert warning = new Alert(Alert.AlertType.WARNING, "Position wajib dipilih");
+                    warning.showAndWait();
+                    return;
+                }
+
+                if (recruitment.getName() == null || recruitment.getName().isBlank()) {
+                    Alert warning = new Alert(Alert.AlertType.WARNING, "Name wajib diisi");
+                    warning.showAndWait();
+                    return;
+                }
+
+                recruitment.setCreated_date(LocalDate.now());
+                recruitment.setCreated_by(Session.getCurrentUser().getUsername());
+
+                transactionService.saveOrUpdateRecruitment(recruitment);
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION,
+                            "Data has been saved",
+                            ButtonType.OK);
+                alert.showAndWait();
+
+                editingRowIndex = -1;
+                refreshTable();
+            });
+
+            btnCancel.setOnAction(e -> {
+                editingRowIndex = -1;
+                refreshTable();
+            });
+        }
+
+        @Override
+        protected void updateItem(Void item, boolean empty) {
+            super.updateItem(item, empty);
+
+            if (empty) {
+                setGraphic(null);
+            } else {
+                setGraphic(getIndex() == editingRowIndex ? boxEdit : boxView);
+            }
+        }
+    });
+        
         tableColumnDateCreated.setCellValueFactory(
             Recruitment -> new SimpleStringProperty(Recruitment.getValue().getCreated_date()!= null ? Recruitment.getValue().getCreated_date().toString() : ""
         ));
@@ -201,7 +265,7 @@ public class RecruitmentControllerInlineEditing {
             return;
         }
         
-        Recruitment newRecruitment = new Recruitment(0, "", "", LocalDate.now(), LocalDate.now(), "Admin", null);
+        Recruitment newRecruitment = new Recruitment(0, "", "", LocalDate.now(), LocalDate.now(), Session.getCurrentUser().getUsername(), null);
         observableList.add(0, newRecruitment);
         editingRowIndex = 0;
         tableView.refresh();

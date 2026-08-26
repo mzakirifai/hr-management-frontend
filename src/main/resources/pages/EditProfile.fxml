@@ -1,33 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import java.lang.*?>
-<?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.*?>
-
-<VBox xmlns="http://javafx.com/javafx" 
-      xmlns:fx="http://javafx.com/fxml" 
-      fx:controller="co.id.controller.pages.AboutController"
-      spacing="10" styleClass="form-background">
-    
-    <ImageView fitHeight="60" fitWidth="60">
-        <image>
-            <Image url="@/images/logo.png"/>
-        </image>
-    </ImageView>
-    
-    <Label text="HR Management System" styleClass="form-label"/>
-    <Label text="Version 1.0"/> 
-    
-    <Separator/> 
-    
-    <Label text="Developed by: Muhammad Zaki Rifai"/>
-    <Label text="Universitas Indraprasta PGRI (UNINDRA)" />
-    
+<?import javafx.scene.shape.*?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      xmlns="http://javafx.com/javafx"
+      fx:controller="co.id.controller.pages.EditProfileController"
+      spacing="20" styleClass="form-background">
+      
+    <Label text="Edit Profile" styleClass="form-label"/>
     <Separator/>
-
-    <Label text="Built with : JavaFX, SQLite, JasperReports, HikariCP"/>
-
+    
+    <VBox spacing="15" alignment="CENTER_LEFT">
+        
+        <StackPane>
+            <ImageView fx:id="profileImageView" fitWidth="100" fitHeight="100">
+            </ImageView>
+        </StackPane>
+        
+        <Button fx:id="btnChoosePhoto" text="Choose Photo" onAction="#handleChoosePhoto"/>
+        
+        <Label text="Full Name:"/>
+        <TextField fx:id="textFieldFullName"/>
+        
+        <Label fx:id="lblUsername" style="-fx-text-fill: #888;"/>
+        <Label fx:id="lblRole" style="-fx-text-fill: #888;"/>
+        
+    </VBox>
+    
+    <VBox styleClass="form-vbox"/>
+    <HBox alignment="CENTER_RIGHT">
+        <Button text="Save" fx:id="saveBtn" onAction="#saveProfile" styleClass="form-button">
+            <graphic>
+                <ImageView fitHeight="16" fitWidth="16">
+                    <image>
+                        <Image url="@/icons/save.png"/>
+                    </image>
+                </ImageView>                    
+            </graphic>
+        </Button>   
+    </HBox>
+    
 </VBox>

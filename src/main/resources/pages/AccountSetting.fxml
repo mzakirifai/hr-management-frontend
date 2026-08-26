@@ -1,33 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<?import co.id.component.*?>
 <?import java.lang.*?>
-<?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.*?>
-
-<VBox xmlns="http://javafx.com/javafx" 
-      xmlns:fx="http://javafx.com/fxml" 
-      fx:controller="co.id.controller.pages.AboutController"
-      spacing="10" styleClass="form-background">
-    
-    <ImageView fitHeight="60" fitWidth="60">
-        <image>
-            <Image url="@/images/logo.png"/>
-        </image>
-    </ImageView>
-    
-    <Label text="HR Management System" styleClass="form-label"/>
-    <Label text="Version 1.0"/> 
-    
-    <Separator/> 
-    
-    <Label text="Developed by: Muhammad Zaki Rifai"/>
-    <Label text="Universitas Indraprasta PGRI (UNINDRA)" />
-    
+<VBox xmlns:fx="http://javafx.com/fxml"
+      xmlns="http://javafx.com/javafx"
+      fx:controller="co.id.controller.pages.AccountSettingController"
+      spacing="20" styleClass="form-background">
+      
+    <Label text="Account Setting" styleClass="form-label"/>
     <Separator/>
-
-    <Label text="Built with : JavaFX, SQLite, JasperReports, HikariCP"/>
-
+    
+    <VBox spacing="10" maxWidth="350">
+        <Label text="Old Password:"/>
+        <PasswordToggleField fx:id="fieldOldPassword"/>
+        
+        <Label text="New Password:"/>
+        <PasswordToggleField fx:id="fieldNewPassword"/>
+        
+        <Label text="Confirm New Password:"/>
+        <PasswordToggleField fx:id="fieldConfirmPassword"/>
+    </VBox>
+    
+    <VBox styleClass="form-vbox"/>
+    <HBox alignment="CENTER_RIGHT">
+        <Button text="Change Password" fx:id="saveBtn" onAction="#handleChangePassword" styleClass="form-button">
+            <graphic>
+                <ImageView fitHeight="16" fitWidth="16">
+                    <image>
+                        <Image url="@/icons/save.png"/>
+                    </image>
+                </ImageView>                    
+            </graphic>
+        </Button>   
+    </HBox>
+    
 </VBox>
